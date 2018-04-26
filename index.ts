@@ -1,17 +1,7 @@
-import * as http from 'http'
-import app from './app/App'
+
+import {ServerIo} from './server-io'
 
 
-const port = '8080'||process.env.PORT;
-app.set('port',port)
-const server = http.createServer(app);
-server.listen(port);
+let app = new ServerIo().getApp();
 
-server.on('listening', onListening);
-
-//function to note that Express is listening
-function onListening(): void {
-  console.log(`Listening on port `+ port);
-}
-
-
+//export {app}
